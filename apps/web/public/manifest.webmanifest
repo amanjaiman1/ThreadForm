@@ -1,0 +1,17 @@
+{
+  "name": "ThreadForm",
+  "short_name": "ThreadForm",
+  "description": "Design custom apparel your whole crew will wear.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6C3CE9",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

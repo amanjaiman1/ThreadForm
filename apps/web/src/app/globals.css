@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Design tokens (DESIGN_SYSTEM.md) — exposed as CSS variables so      */
+/* non-Tailwind contexts (canvas, inline styles) share one source.     */
+/* ------------------------------------------------------------------ */
+:root {
+  --color-brand-500: #6c3ce9;
+  --color-brand-600: #5a2fd0;
+  --color-brand-700: #481fb0;
+  --color-brand-900: #2a1170;
+  --color-volt-500: #a6f000;
+  --color-ink-900: #0e0e12;
+  --color-ink-500: #5b5b66;
+  --color-surface-0: #ffffff;
+  --color-surface-100: #f6f6f9;
+  --color-line-200: #e6e6ec;
+
+  /* motion tokens */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1.2);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
+
+  --header-h: 72px;
+}
+
+@layer base {
+  * {
+    @apply border-line-200;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  /* Lenis smooth-scroll disables native smooth-scroll when active */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-surface-0 text-ink-900 font-sans;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  ::selection {
+    background-color: var(--color-volt-500);
+    color: var(--color-ink-900);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  /* Visible, on-brand focus ring for accessibility */
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply px-5 sm:px-8 lg:px-10;
+  }
+
+  .text-gradient-brand {
+    @apply bg-gradient-brand bg-clip-text text-transparent;
+  }
+
+  .text-gradient-volt {
+    background-image: linear-gradient(135deg, #a6f000, #6c3ce9);
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* Subtle dotted/grid backdrop used behind hero + sections */
+  .bg-dotgrid {
+    background-image: radial-gradient(rgba(108, 60, 233, 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-pill border border-line-200 bg-surface-0/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand-700 backdrop-blur;
+  }
+
+  /* shimmer skeleton */
+  .skeleton-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: shimmer 1.6s infinite;
+  }
+}
+
+@layer utilities {
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    );
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Respect reduced motion globally (DESIGN_SYSTEM.md motion principle #3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
