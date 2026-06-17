@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { Templates } from "@/components/sections/templates";
+import { DesignShowcase } from "@/components/sections/design-showcase";
 import { Features } from "@/components/sections/features";
 import { BulkOrdering } from "@/components/sections/bulk-ordering";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Hero />
       <HowItWorks />
       <Templates />
+      <DesignShowcase />
       <Features />
       <BulkOrdering />
       <Testimonials />

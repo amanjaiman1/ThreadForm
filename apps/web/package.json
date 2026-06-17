@@ -12,13 +12,15 @@
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.10",
     "clsx": "^2.1.1",
+    "fabric": "^6.9.1",
     "framer-motion": "^11.11.17",
     "lenis": "^1.1.18",
     "next": "^14.2.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.4",
-    "three": "^0.170.0"
+    "three": "^0.170.0",
+    "zustand": "^4.5.7"
   },
   "devDependencies": {
     "@types/node": "^20.16.15",

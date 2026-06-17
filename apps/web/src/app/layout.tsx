@@ -5,6 +5,7 @@ import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
+import { AnalyticsProvider } from "@/components/providers/analytics";
 import "./globals.css";
 
 const sora = Sora({
@@ -98,6 +99,7 @@ export default function RootLayout({
       <body className="min-h-dvh antialiased">
         <OrganizationJsonLd />
         <WebSiteJsonLd />
+        <AnalyticsProvider />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-ink-900 focus:px-4 focus:py-2 focus:text-surface-0"

@@ -154,3 +154,34 @@ export const stats = [
   { value: "4.9/5", label: "Average rating" },
   { value: "<2%", label: "Defect rate" },
 ];
+
+
+export type ShowcaseItem = {
+  title: string;
+  sub: string;
+  category: "Clubs" | "Fests" | "Teams" | "Events" | "Startups";
+  garment: string;
+  accent: string;
+  likes: number;
+};
+
+export const showcaseCategories = [
+  "All",
+  "Clubs",
+  "Fests",
+  "Teams",
+  "Events",
+  "Startups",
+] as const;
+
+export const showcaseItems: ShowcaseItem[] = [
+  { title: "SPRING FEST", sub: "Riverside '26", category: "Fests", garment: "#1A1A1A", accent: "#A6F000", likes: 342 },
+  { title: "RC", sub: "Design Club", category: "Clubs", garment: "#2A1170", accent: "#FFFFFF", likes: 218 },
+  { title: "TITANS 10", sub: "FC Home Kit", category: "Teams", garment: "#0B3D2E", accent: "#A6F000", likes: 511 },
+  { title: "HACK NIGHT", sub: "DevCon '26", category: "Events", garment: "#14171F", accent: "#2F77F0", likes: 287 },
+  { title: "MAKE IT", sub: "Stackbird", category: "Startups", garment: "#0E0E12", accent: "#A6F000", likes: 164 },
+  { title: "DEBSOC", sub: "Debate Society", category: "Clubs", garment: "#6C3CE9", accent: "#FFFFFF", likes: 203 },
+  { title: "CREW", sub: "Fest Organizers", category: "Fests", garment: "#481FB0", accent: "#C6FF4D", likes: 256 },
+  { title: "07", sub: "Campus Cricket", category: "Teams", garment: "#1A1A1A", accent: "#FFFFFF", likes: 398 },
+  { title: "LAUNCH DAY", sub: "Product Drop", category: "Startups", garment: "#0B1F3A", accent: "#2F77F0", likes: 142 },
+];
